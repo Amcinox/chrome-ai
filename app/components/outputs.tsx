@@ -5,7 +5,7 @@ import { cn } from '../utils';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 import { AlertCircle } from 'lucide-react';
 import Link from 'next/link';
-import { ChromeAICapabilities } from '@/src/enum';
+import { ChromeAIAssistantCapabilities } from '@/src/global';
 
 export interface OutputsProps extends React.HTMLAttributes<HTMLDivElement> { }
 
@@ -27,7 +27,7 @@ export const Outputs = React.forwardRef<
 
     setIsEnabledFlags(!!globalThis.ai?.languageModel);
 
-    globalThis.ai?.languageModel.capabilities().then((cap: ChromeAICapabilities) => {
+    globalThis.ai?.languageModel.capabilities().then((cap: ChromeAIAssistantCapabilities) => {
 
       setIsEnabledFlags(cap.available === 'readily');
     });
